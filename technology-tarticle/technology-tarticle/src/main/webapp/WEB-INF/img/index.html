@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>technology-tarticle</title>
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/gd.js" ></script>
+	</head>
+	<body>
+		<article class="excerpt">
+			<h2>
+				<a href="contentPage.html?num=1" title="用DTcms做一个独立博客网站（响应式模板）" target="_blank" >用DTcms做一个独立博客网站（响应式模板）</a>
+				<div class="time">发布时间： 2016-10-14</div>
+			</h2>
+			
+		</article>
+	</body>
+	<script type="text/javascript">
+		$(function() {　　　　
+			loadData();　　
+		});
+		self.setInterval(function() {
+			location.reload(); 
+		},1000*60);
+		
+		function loadData(){
+			getData();
+			var i = 0;
+			for(i = 0; i < data.length; i++) {
+				var article_element = document.createElement("article");
+				article_element.className = "excerpt";
+				var h2_element = document.createElement("h2");
+				var a1_element = document.createElement("a");
+				a1_element.href = "contentPage.html?num="+i;
+				a1_element.target ="_blank";
+				a1_element.title = data[i].title;
+				a1_element.innerHTML = data[i].title;
+				var div1_element = document.createElement("div");
+				div1_element.className = "time";
+				div1_element.innerHTML = "发布时间:" + data[i].date;
+				h2_element.appendChild(a1_element);
+				h2_element.appendChild(div1_element);
+				article_element.appendChild(h2_element);
+				document.body.appendChild(article_element);
+			}
+		}
+	</script>
+
+</html>

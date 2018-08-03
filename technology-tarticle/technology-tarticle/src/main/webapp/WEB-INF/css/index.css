@@ -1,0 +1,38 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.digest {
+	width: auto;
+	height: auto;
+	border: 1px solid gray;
+	float: left;
+	margin: 5px;
+	text-align: center;
+}
+
+.text {
+	width: 400px;
+	height: 200px;
+	margin: 5px;
+	font: 12px caption;
+	margin-bottom: 5px;
+}
+.content{
+	word-wrap: break-word;
+	width: 400px;
+	height: 400px;
+	overflow: hidden;
+}
+.container {
+	margin: 50px auto;
+	width: 1000px;
+}
+
+/*a:hover>img {
+	transform: scale(1.5, 1.5);
+	-webkit-transition: .3s transform;
+	-moz-transition: .3s transform;
+	transition: .3s transform;
+}*/

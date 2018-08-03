@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>contentPage</title>
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/gd.js" ></script>
+		<link rel="stylesheet" href="css/content.css" />
+	</head>
+
+	<body>
+	</body>
+	<script type="text/javascript">
+		$(function() {　　　　
+			loadData();　　
+		});
+		self.setInterval(function() {
+			location.reload();
+		}, 1000 * 60);
+		/**
+		 * 获取参数的键值对对象。
+		 * @returns {Object}
+		 */
+		function getParam() {
+			try {
+				var url = window.location.href;
+				var result = url.split("?")[1];
+				var keyValue = result.split("&");
+				var obj = {};
+				for(var i = 0; i < keyValue.length; i++) {
+					var item = keyValue[i].split("=");
+					obj[item[0]] = item[1];
+				}
+				return obj;
+			} catch(e) {
+				console.warn("There has no param value!");
+			}
+		};
+		function loadData() {
+			var paras = getParam();
+			getData();
+			var i = 0;
+			for(i = 0; i < data.length; i++) {
+				if(parseInt(paras["num"]) == parseInt(i)) {
+					var article_element = document.createElement("article");
+					article_element.className = "excerpt";
+					var font_element = document.createElement("font");
+					var a1_element = document.createElement("h1");
+					a1_element.title = data[i].title;
+					a1_element.innerHTML = data[i].title;
+					var div1_element = document.createElement("div");
+					div1_element.className = "time";
+					div1_element.innerHTML = "发布时间:</br>" + data[i].date;
+					var div2_element = document.createElement("div");
+					div2_element.className="content";
+					div2_element.innerHTML = data[i].content;			
+					article_element.appendChild(a1_element);
+					font_element.appendChild(div1_element);
+					article_element.appendChild(font_element);
+					article_element.appendChild(div2_element);
+					document.body.appendChild(article_element);
+				}
+			}
+		}
+	</script>
+
+</html>
